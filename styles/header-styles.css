@@ -14,9 +14,11 @@
 
 .mid-section {
   flex: 1;
-  background-color: lightpink;
+  /* background-color: lightpink; */
   margin-left: 20px;
   margin-right: 20px;
+  display: flex;
+  align-items: center;
 }
 .right-section {
   width: 100px;
@@ -31,4 +33,50 @@
 
 .youtube-logo {
   height: 24px;
+}
+
+.search-button{
+	height: 37px;
+	width: 66px;
+    background-color: rgb(244, 238, 238);
+    border:1px solid gray;
+    margin-left: -1;
+}
+
+.voice-search-button
+{ 
+    height: 36px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: rgb(244, 238, 238);
+    border: none;
+    margin-left: 10px;
+}
+
+.search-bar{
+    flex:1;
+    height: 36px;
+    background-color: rgb(244, 238, 238);
+    border:1px solid gray;
+    border-radius: 2px;
+    font-size: 16px;
+    padding-left: 4px;
+    font-family: Roboto,Arial;
+}
+.search-bar::placeholder{
+    font-family: Roboto,Arial;
+    font-size: 16px;
+    }
+
+.search-icon
+{
+    height: 25px;
+    margin-top: 4px;
+}
+
+.voice-search-icon
+{
+    height: 25px;
+    margin-top: 4px;
+
 }
