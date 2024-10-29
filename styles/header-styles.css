@@ -3,6 +3,11 @@
   height: 55px;
   border: 1px solid red;
   align-items: center;
+  position: fixed;
+  top:0px;
+  right:0px;
+  left:0px;
+  background-color: white;
 }
 
 .left-section {
