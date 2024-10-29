@@ -1,0 +1,52 @@
+.thumbnail-image {
+    /* width:300px; */
+    width: 100%;
+  }
+  .thumbnail-picture {
+    margin-bottom: 8px;
+  }
+  
+
+  .video-title {
+    /* width: 200px; */
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .author-name {
+    color: rgb(96, 96, 96);
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+
+  .video-stats {
+    color: rgb(96, 96, 96);
+    font-size: 12px;
+  }
+
+  .profile-image {
+    width:40px;
+    border-radius: 20px;
+  }
+
+  .profile-picture {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 8px;
+  }
+
+  .video-details {
+    display: inline-block;
+  }
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+  .video-info {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+  }

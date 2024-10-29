@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    height:55px;
+    border: 1px solid red;
+    align-items: center;
+
+    
+}
+
+.left-section{
+    width:100px;
+    background-color: lightblue;
+}
+
+.mid-section{
+    flex:1;
+    background-color: lightpink;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.right-section{
+    width:100px;
+    background-color: lightgray;
+}
