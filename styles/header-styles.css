@@ -15,14 +15,18 @@
 .mid-section {
   flex: 1;
   /* background-color: lightpink; */
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
   display: flex;
   align-items: center;
 }
 .right-section {
-  width: 100px;
-  background-color: lightgray;
+  width: 180px;
+  /* background-color: lightgray; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
 }
 
 .hamburger-menu {
@@ -79,4 +83,8 @@
     height: 25px;
     margin-top: 4px;
 
+}
+
+.upload-icon,.youtube-apps-icon,.notifications-icon,.current-user-picture{
+    height: 36px;
 }
