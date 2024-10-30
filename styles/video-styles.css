@@ -46,6 +46,9 @@
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 20px;
     row-gap: 20px;
+    background-color: rgb(244, 239, 239);
+    padding: 20px;
+    padding-top:30px
   }
   .video-info {
     display: grid;

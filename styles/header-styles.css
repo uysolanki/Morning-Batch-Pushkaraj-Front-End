@@ -8,7 +8,8 @@
   right:0px;
   left:0px;
   background-color: white;
-  z-index: 100;
+  z-index: 99;
+  border-bottom: 1px solid rgb(201, 193, 193);
 }
 
 .left-section {
@@ -51,6 +52,7 @@
     background-color: rgb(244, 238, 238);
     border:1px solid gray;
     margin-left: -1;
+    position: relative;
 }
 
 .voice-search-button
@@ -93,4 +95,20 @@
 
 .upload-icon,.youtube-apps-icon,.notifications-icon,.current-user-picture{
     height: 36px;
+}
+
+.search-button .tooltip{
+    background-color: gray;
+    color:white;
+    font-size: 12px;
+    padding:4px 8px;
+    border-radius: 2px;
+    position: absolute;
+    bottom:-30px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.search-button:hover .tooltip{
+    opacity: 1;
 }
