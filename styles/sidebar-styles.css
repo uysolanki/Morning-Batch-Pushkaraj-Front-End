@@ -1,5 +1,5 @@
 .side-bar {
-  background-color: red;
+  /* background-color: red; */
   position: fixed;
   top: 51px;
   width: 72px;
@@ -12,6 +12,10 @@
     height: 80px;
     background-color: white;
     margin: 5px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .sidebar-link:hover{
@@ -21,4 +25,9 @@
 
 .sidebar-link img{
     height: 24px;
+    margin-bottom: 4px;
+}
+
+.sidebar-link div{
+   font-size: 10px;
 }
