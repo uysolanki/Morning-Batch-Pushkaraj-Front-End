@@ -4,6 +4,7 @@
   }
   .thumbnail-picture {
     margin-bottom: 8px;
+    position:relative;
   }
   
 
@@ -49,4 +50,15 @@
   .video-info {
     display: grid;
     grid-template-columns: 50px 1fr;
+  }
+
+  .video-duration{
+    width:45px;
+    height: 16px;
+    background-color: black;
+    color:white;
+    padding:4px;
+    position:absolute;
+    right:10px;
+    bottom:10px;
   }
