@@ -112,3 +112,20 @@
 .search-button:hover .tooltip{
     opacity: 1;
 }
+
+.right3{
+    position: relative;
+}
+
+.counter{
+    background-color: red;
+    color: white;
+    height: 18px;
+    width:18px;
+    border-radius: 9px;
+    text-align: center;
+    position: absolute;
+    top:0px;
+    right: -2px;
+
+}
