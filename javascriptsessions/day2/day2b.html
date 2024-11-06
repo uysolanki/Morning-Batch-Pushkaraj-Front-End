@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .institute-button,.course-button{
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 30px;
+            border-radius: 3px;
+            border: 1px solid black;
+            /* outline: 10px solid yellow; */
+        }
+    </style>
+</head>
+<body>
+    
+    <button onclick="displayInstitueName()" class="js-institute-button institute-button">ExcelR</button>
+    <button onclick="displayInstitueName()" class="js-institute-button institute-button">Baner</button>
+    <button onclick="displayInstitueName()" class="js-institute-button institute-button">Pune</button>
+    
+    <!-- <button onmouseenter="displayCourseName();" class="js-course-button course-button">FSD</button> -->
+
+    <script>
+        function displayInstitueName()
+        {
+            const instituteButtons=document.querySelectorAll('.js-institute-button');
+            console.log(instituteButtons);
+            instituteButtons.forEach(
+                (element,index)=>{
+                    element.innerHTML='Welcome to FSD';
+                    console.log(index);
+                }
+            );
+            //instituteButton.innerHTML='ExcelR, Pune';
+            // alert('Welcome to ExclerR Edtech Pvt ltd, India');
+        }
+
+        
+    </script>
+    <!-- <script src="./myscript.js"></script> -->
+</body>
+</html>

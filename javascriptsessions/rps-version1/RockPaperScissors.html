@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="playGame('Rock')">Rock</button>
+    <button onclick="playGame('Paper')">Paper</button>
+    <button onclick="playGame('Scissors')">Scissors</button>
+
+    <script>
+      function playGame(playerMove) {
+        console.log("Player Move " ,playerMove);
+        const computerMove = getcomputerMove();
+        console.log("Computer Move " ,computerMove);
+        if (playerMove === "Rock") {
+          if (computerMove === "Rock") {
+            console.log("Result : Tie");
+          } else if (computerMove === "Paper") {
+            console.log("Result : Lose");
+          } else if (computerMove === "Scissors") {
+            console.log("Result : Win");
+          }
+        }
+
+        if (playerMove === "Paper") {
+          if (computerMove === "Rock") {
+            console.log("Result : Win");
+          } else if (computerMove === "Paper") {
+            console.log("Result : Tie");
+          } else if (computerMove === "Scissors") {
+            console.log("Result : Lose");
+          }
+        }
+
+        if (playerMove === "Scissors") {
+          if (computerMove === "Rock") {
+            console.log("Result : Lose");
+          } else if (computerMove === "Paper") {
+            console.log("Result : Win");
+          } else if (computerMove === "Scissors") {
+            console.log("Result : Tie");
+          }
+        }
+      }
+
+      function getcomputerMove() {
+        const randomNumber = Math.random();
+        if (randomNumber > 0 && randomNumber <= 1 / 3) {
+          return "Rock";
+        } else if (randomNumber > 1 / 3 && randomNumber <= 2 / 3) {
+          return "Paper";
+        } else {
+          return "Scissors";
+        }
+      }
+    </script>
+  </body>
+</html>
