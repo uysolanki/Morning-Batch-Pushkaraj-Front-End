@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .move-icon
+      {
+        height: 70px;
+      }
+    </style>
   </head>
   <body>
-    <button onclick="playGame('Rock')">Rock</button>
-    <button onclick="playGame('Paper')">Paper</button>
-    <button onclick="playGame('Scissors')">Scissors</button>
+    <button onclick="playGame('Rock')"><img src="../images/rock-emoji.png" class="move-icon"></button>
+    <button onclick="playGame('Paper')"><img src="../images/paper-emoji.png" class="move-icon"></button>
+    <button onclick="playGame('Scissors')"><img src="../images/scissors-emoji.png" class="move-icon"></button>
     <button onclick="resetScore()">Reset Score</button>
     <p class="js-player-move"></p>
     <p class="js-game-result"></p>
@@ -123,8 +129,8 @@
         loss:0,
         tie:0
       };
-      console.clear();
-      console.log(`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}`)
+      const scoreboard=document.querySelector('.js-scoreboard');
+      scoreboard.innerHTML=`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}` 
       }
     </script>
   </body>
