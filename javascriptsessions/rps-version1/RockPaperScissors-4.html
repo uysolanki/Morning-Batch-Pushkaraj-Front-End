@@ -10,8 +10,10 @@
     <button onclick="playGame('Paper')">Paper</button>
     <button onclick="playGame('Scissors')">Scissors</button>
     <button onclick="resetScore()">Reset Score</button>
+    <p class="js-player-move"></p>
+    <p class="js-game-result"></p>
+    <p class="js-scoreboard"></p>
 
-    
     <script>
     // let score= JSON.parse(localStorage.getItem('myScore'));
     //  if(score===null)
@@ -42,6 +44,7 @@
      };
 
 
+     
 
      
       function playGame(playerMove) {
@@ -86,13 +89,20 @@
         }
         localStorage.setItem('myScore',JSON.stringify(score));
 
-        console.log("Player Move : " ,playerMove);
-        console.log("Computer Move : " ,computerMove);
-        console.log("Result : " ,result);
-
-       console.log(`Player Move : ${playerMove} Computer Move :  ${computerMove}  Result : ${result}`)
-        console.log(`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}`)
+        // console.log("Player Move : " ,playerMove);
+        // console.log("Computer Move : " ,computerMove);
         
+        const moves=document.querySelector('.js-player-move');
+        moves.innerHTML=`Player Move : ${playerMove}, Computer Move : ${computerMove}`
+
+        //console.log("Result : " ,result);
+        const results=document.querySelector('.js-game-result');
+        results.innerHTML=`Result : ${result}`
+
+      //  console.log(`Player Move : ${playerMove} Computer Move :  ${computerMove}  Result : ${result}`)
+      // console.log(`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}`)
+       const scoreboard=document.querySelector('.js-scoreboard');
+       scoreboard.innerHTML=`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}` 
     }
 
       function getcomputerMove() {
