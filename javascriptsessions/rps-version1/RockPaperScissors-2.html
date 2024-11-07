@@ -11,40 +11,63 @@
     <button onclick="playGame('Scissors')">Scissors</button>
 
     <script>
+        let score={
+            win:0,
+            loss:0,
+            tie:0
+        }
+
+      console.log(`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}`)
       function playGame(playerMove) {
-        console.log("Player Move " ,playerMove);
+        
         const computerMove = getcomputerMove();
-        console.log("Computer Move " ,computerMove);
+        let result;
         if (playerMove === "Rock") {
           if (computerMove === "Rock") {
-            console.log("Result : Tie");
+            result = "Tie";
           } else if (computerMove === "Paper") {
-            console.log("Result : Lose");
+            result = "Lose";
           } else if (computerMove === "Scissors") {
-            console.log("Result : Win");
+            result = "Win";
           }
         }
 
         if (playerMove === "Paper") {
           if (computerMove === "Rock") {
-            console.log("Result : Win");
+            result = "Win";
           } else if (computerMove === "Paper") {
-            console.log("Result : Tie");
+            result = "Tie";
           } else if (computerMove === "Scissors") {
-            console.log("Result : Lose");
+            result = "Lose";
           }
         }
 
         if (playerMove === "Scissors") {
           if (computerMove === "Rock") {
-            console.log("Result : Lose");
+            result = "Lose";
           } else if (computerMove === "Paper") {
-            console.log("Result : Win");
+            result = "Win";
           } else if (computerMove === "Scissors") {
-            console.log("Result : Tie");
+            result = "Tie";
           }
         }
-      }
+
+        switch(result)
+        {
+            case 'Lose': score.loss+=1; break;
+            case 'Win': score.win+=1; break;
+            case 'Tie': score.tie+=1; break;
+        }
+
+        console.log("Player Move : " ,playerMove);
+        console.log("Computer Move : " ,computerMove);
+        console.log("Result : " ,result);
+
+       console.log(`Player Move : ${playerMove} Computer Move :  ${computerMove}  Result : ${result}`)
+       const{win,loss,tie}=score
+       console.log(`Wins : ${win}, Loss :  ${loss} , Tie : ${tie}`)
+        
+    }
 
       function getcomputerMove() {
         const randomNumber = Math.random();

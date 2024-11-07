@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        localStorage.setItem('myCourse','Java Full Stack');
+        localStorage.setItem('myFriend','Alice');
+        localStorage.setItem('myAddress','Baner');
+       
+        console.log(localStorage.getItem('myCourse'));
+        console.log(localStorage.getItem('myFriend'));
+        console.log(localStorage.getItem('myAddress'));
+
+        localStorage.removeItem('myFriend');
+
+        console.log(localStorage.getItem('myCourse'));
+        console.log(localStorage.getItem('myFriend'));
+        console.log(localStorage.getItem('myAddress'));
+        localStorage.clear();
+        console.log(localStorage.getItem('myCourse'));
+        console.log(localStorage.getItem('myFriend'));
+        console.log(localStorage.getItem('myAddress'));
+    </script>
+</body>
+</html>
