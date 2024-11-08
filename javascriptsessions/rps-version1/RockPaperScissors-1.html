@@ -16,51 +16,78 @@
         
         const computerMove = getcomputerMove();
         let result;
-        if (playerMove === "Rock") {
-          if (computerMove === "Rock") {
-            result = "Tie";
-          } else if (computerMove === "Paper") {
-            result = "Lose";
-          } else if (computerMove === "Scissors") {
-            result = "Win";
-          }
-        }
+        switch(playerMove)
+        {
+          case 'Rock':
+              switch(computerMove)
+              {
+                case 'Rock' :result = "Tie"; break;
+                case 'Paper' : result = "Lose"; break;
+                case 'Scissors' : result = "Win"; break;
+              }
+            break;
+          case 'Paper':
+             switch(computerMove)
+              {
+                case 'Rock' :result = "Win"; break;
+                case 'Paper' : result = "Tie"; break;
+                case 'Scissors' : result = "Lose"; break;
+              }
+            break;
+          case 'Scissors':
+          switch(computerMove)
+              {
+                case 'Rock' :result = "Lose"; break;
+                case 'Paper' : result = "Win"; break;
+                case 'Scissors' : result = "Tie"; break;
+              }
 
-        if (playerMove === "Paper") {
-          if (computerMove === "Rock") {
-            result = "Win";
-          } else if (computerMove === "Paper") {
-            result = "Tie";
-          } else if (computerMove === "Scissors") {
-            result = "Lose";
-          }
         }
+        // if (playerMove === "Rock") {
+        //   if (computerMove === "Rock") {
+        //     result = "Tie";
+        //   } else if (computerMove === "Paper") {
+        //     result = "Lose";
+        //   } else if (computerMove === "Scissors") {
+        //     result = "Win";
+        //   }
+        // }
 
-        if (playerMove === "Scissors") {
-          if (computerMove === "Rock") {
-            result = "Lose";
-          } else if (computerMove === "Paper") {
-            result = "Win";
-          } else if (computerMove === "Scissors") {
-            result = "Tie";
-          }
-        }
+        // if (playerMove === "Paper") {
+        //   if (computerMove === "Rock") {
+        //     result = "Win";
+        //   } else if (computerMove === "Paper") {
+        //     result = "Tie";
+        //   } else if (computerMove === "Scissors") {
+        //     result = "Lose";
+        //   }
+        // }
+
+        // if (playerMove === "Scissors") {
+        //   if (computerMove === "Rock") {
+        //     result = "Lose";
+        //   } else if (computerMove === "Paper") {
+        //     result = "Win";
+        //   } else if (computerMove === "Scissors") {
+        //     result = "Tie";
+        //   }
+        // }
 
 
         console.log("Player Move : " ,playerMove);
         console.log("Computer Move : " ,computerMove);
         console.log("Result : " ,result);
 
-       console.log(`Player Move : ${playerMove} Computer Move :  ${computerMove}  Result : ${result}`)
+       //console.log(`Player Move : ${playerMove} Computer Move :  ${computerMove}  Result : ${result}`)
        
         
     }
 
       function getcomputerMove() {
-        const randomNumber = Math.random();
-        if (randomNumber > 0 && randomNumber <= 1 / 3) {
+        const randomNumber = Math.random();  //0 - 1    0.91
+        if (randomNumber > 0 && randomNumber <= 0.33) {
           return "Rock";
-        } else if (randomNumber > 1 / 3 && randomNumber <= 2 / 3) {
+        } else if (randomNumber > 0.34 && randomNumber <= 0.66) {
           return "Paper";
         } else {
           return "Scissors";
