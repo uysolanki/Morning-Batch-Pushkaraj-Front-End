@@ -5,56 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .move-icon
-      {
+      body {
+        background-color: black;
+        color: white;
+        font-family: arial;
+        
+      }
+
+      .move-icon {
         height: 70px;
+      }
+
+      .small-move-icon {
+        height: 50px;
+      }
+      .title {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+
+      .move-button{
+        height: 100px;
+        width: 100px;
+        border : 3px solid white;
+        border-radius: 50px;
+        background-color: transparent;
+        margin: 0px 20px;
+        cursor: pointer;
+      }
+
+      .game-area
+      {
+        display: inline-block;
+        border: 1px solid red;
+        text-align: center;
+        padding: 10px;
+        margin-top: 100px;
+        background-color: rgb(49, 43, 43);
+      }
+      .player-move,.game-result,.scoreboard{
+        font-size: 20px;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
-    <button onclick="playGame('Rock')"><img src="../images/rock-emoji.png" class="move-icon"></button>
-    <button onclick="playGame('Paper')"><img src="../images/paper-emoji.png" class="move-icon"></button>
-    <button onclick="playGame('Scissors')"><img src="../images/scissors-emoji.png" class="move-icon"></button>
-    <button onclick="resetScore()">Reset Score</button>
-    <p class="js-player-move"></p>
-    <p class="js-game-result"></p>
-    <p class="js-scoreboard"></p>
-
+    <center>
+    <div class="game-area">
+      <p class="title">Rock Paper Scissors</p>
+      <button onclick="playGame('Rock')" class="move-button">
+        <img src="../images/rock-emoji.png" class="move-icon" />
+      </button>
+      <button onclick="playGame('Paper')" class="move-button">
+        <img src="../images/paper-emoji.png" class="move-icon" />
+      </button>
+      <button onclick="playGame('Scissors')" class="move-button">
+        <img src="../images/scissors-emoji.png" class="move-icon" />
+      </button>
+      <button onclick="resetScore()" class="move-button"><img src="../images/refresh-emoji.png" class="move-icon" /></button>
+      <p class="js-player-move player-move"></p>
+      <p class="js-game-result game-result"></p>
+      <p class="js-scoreboard scoreboard"></p>
+    </div>
+  </center>
     <script>
-    // let score= JSON.parse(localStorage.getItem('myScore'));
-    //  if(score===null)
-    //  {
-    //   score={
-    //     win:0,
-    //     loss:0,
-    //     tie:0
-    //   };
-    //  }
+      // let score= JSON.parse(localStorage.getItem('myScore'));
+      //  if(score===null)
+      //  {
+      //   score={
+      //     win:0,
+      //     loss:0,
+      //     tie:0
+      //   };
+      //  }
 
-    //let score= JSON.parse(localStorage.getItem('myScore'));
-    //  if(!score)
-    //  {
-    //   score={
-    //     win:0,
-    //     loss:0,
-    //     tie:0
-    //   };
-    //  }
+      //let score= JSON.parse(localStorage.getItem('myScore'));
+      //  if(!score)
+      //  {
+      //   score={
+      //     win:0,
+      //     loss:0,
+      //     tie:0
+      //   };
+      //  }
 
-     let score= JSON.parse(localStorage.getItem('myScore'))
-     ||
-     {
-        win:0,
-        loss:0,
-        tie:0
-     };
+      let score = JSON.parse(localStorage.getItem("myScore")) || {
+        win: 0,
+        loss: 0,
+        tie: 0,
+      };
 
-
-     
-
-     
       function playGame(playerMove) {
-        
         const computerMove = getcomputerMove();
         let result;
         if (playerMove === "Rock") {
@@ -87,29 +129,35 @@
           }
         }
 
-        switch(result)
-        {
-            case 'Lose': score.loss+=1; break;
-            case 'Win': score.win+=1; break;
-            case 'Tie': score.tie+=1; break;
+        switch (result) {
+          case "Lose":
+            score.loss += 1;
+            break;
+          case "Win":
+            score.win += 1;
+            break;
+          case "Tie":
+            score.tie += 1;
+            break;
         }
-        localStorage.setItem('myScore',JSON.stringify(score));
+        localStorage.setItem("myScore", JSON.stringify(score));
 
         // console.log("Player Move : " ,playerMove);
         // console.log("Computer Move : " ,computerMove);
-        
-        const moves=document.querySelector('.js-player-move');
-        moves.innerHTML=`Player Move : ${playerMove}, Computer Move : ${computerMove}`
+
+        const moves = document.querySelector(".js-player-move");
+        //moves.innerHTML = `Player Move : ${playerMove}, Computer Move : ${computerMove}`;
+        moves.innerHTML=`You : <img src="../images/${playerMove}-emoji.png" class="small-move-icon">   <img src="../images/${computerMove}-emoji.png" class="small-move-icon">    : Computer`;
 
         //console.log("Result : " ,result);
-        const results=document.querySelector('.js-game-result');
-        results.innerHTML=`Result : ${result}`
+        const results = document.querySelector(".js-game-result");
+        results.innerHTML = `Result : ${result}`;
 
-      //  console.log(`Player Move : ${playerMove} Computer Move :  ${computerMove}  Result : ${result}`)
-      // console.log(`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}`)
-       const scoreboard=document.querySelector('.js-scoreboard');
-       scoreboard.innerHTML=`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}` 
-    }
+        //  console.log(`Player Move : ${playerMove} Computer Move :  ${computerMove}  Result : ${result}`)
+        // console.log(`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}`)
+        const scoreboard = document.querySelector(".js-scoreboard");
+        scoreboard.innerHTML = `Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}`;
+      }
 
       function getcomputerMove() {
         const randomNumber = Math.random();
@@ -121,16 +169,15 @@
           return "Scissors";
         }
       }
-      function resetScore()
-      {
-        localStorage.removeItem('myScore');
-        score={
-        win:0,
-        loss:0,
-        tie:0
-      };
-      const scoreboard=document.querySelector('.js-scoreboard');
-      scoreboard.innerHTML=`Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}` 
+      function resetScore() {
+        localStorage.removeItem("myScore");
+        score = {
+          win: 0,
+          loss: 0,
+          tie: 0,
+        };
+        const scoreboard = document.querySelector(".js-scoreboard");
+        scoreboard.innerHTML = `Win : ${score.win}, Loss :  ${score.loss},  Tie : ${score.tie}`;
       }
     </script>
   </body>
