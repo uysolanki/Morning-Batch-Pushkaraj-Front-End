@@ -121,13 +121,15 @@
         },1000);
         isAutoPlaying = true;
         autoplayButton=document.querySelector('.js-autoplay-button');
-        autoplayButton.classList.add('autoplay-button-off');
+        //autoplayButton.classList.add('autoplay-button-off');
+        autoplayButton.style.backgroundColor="blue";
       }
       else
       {
         isAutoPlaying = false;
         clearInterval(intervalId);
         autoplayButton.classList.remove('autoplay-button-off');
+        autoplayButton.style.backgroundColor="red";
       }
 
       }
