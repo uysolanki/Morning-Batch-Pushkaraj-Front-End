@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .input-error-message {
+        color: red;
+      }
+      .todo-item {
+        display: inline-block;
+      }
+      .todo-list-row {
+        display: grid;
+        grid-template-columns: 250px 150px 100px;
+        column-gap: 20px;
+        align-items: center;
+      }
+
+      .delete-todo-item,
+      .add-button {
+        background-color: rgb(204, 32, 32);
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 2px;
+        font-family: arial;
+        font-weight: bold;
+        width: 120px;
+      }
+      .add-button {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Todo List Practice 3</h3>
+    <div class="todo-list-row">
+      <div>
+        <input type="text" placeholder="Todo name" class="js-input-text" />
+        <span class="input-error-message js-input-error-message"></span>
+      </div>
+      <input type="date" class="js-input-date"/>
+
+      <button class="js-add-button add-button">Add</button>
+    </div>
+    <div class="js-show-todo-list"></div>
+
+    <script>
+      let todoListArray = [
+        {
+          item: "Watch Video",
+          dueDate: "12-11-2024",
+        },
+        {
+          item: "Practice Programming",
+          dueDate: "12-11-2024",
+        },
+      ];
+
+      function renderTodoList() {
+        let todoListHtml = "";
+        todoListArray.forEach((singleTodoListElement, index) => {
+          //console.log(singleTodoListElement)
+          const { item, dueDate } = singleTodoListElement;
+          // console.log(item ,dueDate );
+          todoListHtml += `
+                <div class="todo-list-row">
+                <div><p class="todo-item">${item}</p></div>
+                <div><p class="todo-item-due-date">${dueDate}</p></div>
+                <div><button class="js-delete-todo-item delete-todo-item">Delete</button></div>
+                </div>
+             `;
+        });
+
+        const todoListElement = document.querySelector(".js-show-todo-list");
+        todoListElement.innerHTML = todoListHtml;
+
+        const todoDeleteButtons = document.querySelectorAll(
+          ".js-delete-todo-item"
+        );
+        todoDeleteButtons.forEach((todoDeleteButton, index) => {
+          todoDeleteButton.addEventListener("click", () => {
+            todoListArray.splice(`${index}`, 1);
+            console.log(todoListArray);
+            //console.log("Hello")
+            renderTodoList();
+          });
+        });
+      }
+
+      renderTodoList();
+
+      const addButton = document.querySelector(".js-add-button");
+      addButton.addEventListener("click", addToTodoList);
+
+      const userInputTextbox = document.querySelector(".js-input-text");
+      const userInputDate=document.querySelector('.js-input-date');
+
+      userInputTextbox.addEventListener("keydown", () => {
+        if (event.key === "Enter") {
+          addToTodoList();
+        }
+      });
+
+      function addToTodoList() {
+        let InputErrorMessage = document.querySelector(
+          ".js-input-error-message"
+        );
+        const userInputValue = userInputTextbox.value;
+        const userInputDateValue=userInputDate.value;
+       // console.log(userInputValue,userInputDateValue)
+        if (userInputValue === "") {
+          //alert("textbox cannot be blank");
+          InputErrorMessage.innerText = "textbox cannot be blank";
+          userInputTextbox.style.outline = "3px solid red";
+        } 
+        //else if (todoListArray.includes(userInputValue)) {
+        //   //alert("duplicate elements not allowed");
+        //   InputErrorMessage.innerText = "duplicate elements not allowed";
+        //   userInputTextbox.style.outline = "3px solid red";
+        // }
+         else {
+          todoListArray.push({item: userInputValue,dueDate: userInputDateValue});
+          InputErrorMessage.innerText = "";
+        }
+
+        console.log(todoListArray);
+        userInputTextbox.value = "";
+        userInputTextbox.focus();
+        renderTodoList();
+      }
+
+      renderTodoList();
+
+      // addButton.addEventListener('click',()=>{
+      //     const userInputTextbox=document.querySelector('.js-input-text');
+      //     const userInputValue=userInputTextbox.value;
+      //     console.log(userInputValue);
+      //     todoListArray.push(userInputValue);
+      //     console.log(todoListArray);
+      //     userInputTextbox.value='';
+      //     userInputTextbox.focus();
+      // });
+    </script>
+  </body>
+</html>
