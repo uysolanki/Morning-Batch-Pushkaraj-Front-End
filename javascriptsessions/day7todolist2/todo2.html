@@ -8,6 +8,9 @@
         .input-error-message{
             color:red;
         }
+        .todo-item{
+            display: inline-block;
+        }
     </style>
   </head>
   <body>
@@ -18,31 +21,35 @@
     <div class="js-show-todo-list"></div>
 
     <script>
-      const todoListArray = ['Watch Video','Practice Programming','give car for servicing', 'pickup groceries'];
+      let todoListArray = ['Watch Video','Practice Programming','give car for servicing', 'pickup groceries'];
       
-     
-
-
-      function showTodoList()
+      function renderTodoList()
       {
       let todoListHtml='';
       todoListArray.forEach(
-          (singleTodoListElement)=>{
-             todoListHtml+= `<p>${singleTodoListElement}</p>`
+          (singleTodoListElement,index)=>{
+             todoListHtml+= `<p class="todo-item">${singleTodoListElement}</p><button class="js-delete-todo-item">Delete</button><br>`
           }
       );
 
       const todoListElement=document.querySelector('.js-show-todo-list')
       todoListElement.innerHTML=todoListHtml;
+        
+      const todoDeleteButtons=document.querySelectorAll('.js-delete-todo-item');
+      todoDeleteButtons.forEach(
+        (todoDeleteButton,index)=>{
+          todoDeleteButton.addEventListener('click',()=>{
+            todoListArray.splice(`${index}`,1);
+            console.log(todoListArray);
+            //console.log("Hello")
+            renderTodoList();
+          });  
+          
+        });
+
       }
 
-      showTodoList();
-
-
-
-
-
-
+      renderTodoList();
 
 
 
@@ -79,8 +86,14 @@
         console.log(todoListArray);
         userInputTextbox.value = "";
         userInputTextbox.focus();
-        showTodoList();
+        renderTodoList();
       }
+
+
+
+      
+      
+        renderTodoList();
 
       // addButton.addEventListener('click',()=>{
       //     const userInputTextbox=document.querySelector('.js-input-text');
