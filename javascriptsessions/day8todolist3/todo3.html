@@ -7,6 +7,7 @@
     <style>
       .input-text-error-message, .input-date-error-message {
         color: red;
+        opacity: 1;
       }
       .todo-item {
         display: inline-block;
@@ -123,23 +124,21 @@
         console.log(userInputValue);
         console.log(typeof userInputDateValue);
         if (userInputValue === "") {
-          //alert("textbox cannot be blank");
           inputTextErrorMessage = document.querySelector(
             ".js-input-text-error-message"
           );
           inputTextErrorMessage.innerText = "textbox cannot be blank";
-          // userInputTextbox.style.outline = "3px solid red";
         } else if (userInputDateValue === "") {
           inputDateErrorMessage = document.querySelector(
             ".js-input-date-error-message"
           );
           inputDateErrorMessage.innerText = "Please select a Date";
         }
-        //else if (todoListArray.includes(userInputValue)) {
-        //   //alert("duplicate elements not allowed");
-        //   InputErrorMessage.innerText = "duplicate elements not allowed";
-        //   userInputTextbox.style.outline = "3px solid red";
-        // }
+        //else if(checkForDuplicateItemUsingVars(userInputValue,userInputDateValue))
+        else if(checkForDuplicateItemUsingObject({item:userInputValue,dueDate:userInputDateValue}))
+        {
+          alert('Item allready exist')
+        }
         else {
           todoListArray.push({
             item: userInputValue,
@@ -147,7 +146,6 @@
           });
           inputTextErrorMessage.innerText = "";
           inputDateErrorMessage.innerText="";
-
         }
 
         console.log(todoListArray);
@@ -167,6 +165,31 @@
       //     userInputTextbox.value='';
       //     userInputTextbox.focus();
       // });
+      function checkForDuplicateItemUsingVars(userInputValue,userInputDateValue)
+      {
+        let flag=false;
+        for(let i=0;i<todoListArray.length;i++)
+      {
+        if(todoListArray[i].item === userInputValue && todoListArray[i].dueDate===userInputDateValue)
+        {
+            flag=true;
+            break;
+        }
+      }
+      return flag;
+      }
+
+      function checkForDuplicateItemUsingObject(todoItem)
+      {
+        for(let i=0;i<todoListArray.length;i++)
+        {
+            if(JSON.stringify(todoListArray[i])  === JSON.stringify(todoItem))
+            {
+              return true;
+            }
+        }
+        return false;
+      }
     </script>
   </body>
 </html>
