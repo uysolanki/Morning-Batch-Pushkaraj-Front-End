@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .input-error-message {
+      .input-text-error-message, .input-date-error-message {
         color: red;
       }
       .todo-item {
@@ -28,6 +28,7 @@
         font-family: arial;
         font-weight: bold;
         width: 120px;
+        cursor: pointer;
       }
       .add-button {
         background-color: green;
@@ -38,11 +39,21 @@
     <h3>Todo List Practice 3</h3>
     <div class="todo-list-row">
       <div>
-        <input type="text" placeholder="Todo name" class="js-input-text" />
-        <span class="input-error-message js-input-error-message"></span>
+        <input
+          type="text"
+          placeholder="Todo name"
+          class="js-input-text"
+        /><br />
+        <span
+          class="input-text-error-message js-input-text-error-message"
+        ></span>
       </div>
-      <input type="date" class="js-input-date"/>
-
+      <div>
+        <input type="date" class="js-input-date" />
+        <span
+          class="input-date-error-message js-input-date-error-message"
+        ></span>
+      </div>
       <button class="js-add-button add-button">Add</button>
     </div>
     <div class="js-show-todo-list"></div>
@@ -51,11 +62,11 @@
       let todoListArray = [
         {
           item: "Watch Video",
-          dueDate: "12-11-2024",
+          dueDate: "2024-11-12",
         },
         {
           item: "Practice Programming",
-          dueDate: "12-11-2024",
+          dueDate: "2024-11-12",
         },
       ];
 
@@ -96,7 +107,7 @@
       addButton.addEventListener("click", addToTodoList);
 
       const userInputTextbox = document.querySelector(".js-input-text");
-      const userInputDate=document.querySelector('.js-input-date');
+      const userInputDate = document.querySelector(".js-input-date");
 
       userInputTextbox.addEventListener("keydown", () => {
         if (event.key === "Enter") {
@@ -104,26 +115,39 @@
         }
       });
 
+      let inputDateErrorMessage='';
+      let inputTextErrorMessage='';
       function addToTodoList() {
-        let InputErrorMessage = document.querySelector(
-          ".js-input-error-message"
-        );
         const userInputValue = userInputTextbox.value;
-        const userInputDateValue=userInputDate.value;
-       // console.log(userInputValue,userInputDateValue)
+        const userInputDateValue = userInputDate.value;
+        console.log(userInputValue);
+        console.log(typeof userInputDateValue);
         if (userInputValue === "") {
           //alert("textbox cannot be blank");
-          InputErrorMessage.innerText = "textbox cannot be blank";
-          userInputTextbox.style.outline = "3px solid red";
-        } 
+          inputTextErrorMessage = document.querySelector(
+            ".js-input-text-error-message"
+          );
+          inputTextErrorMessage.innerText = "textbox cannot be blank";
+          // userInputTextbox.style.outline = "3px solid red";
+        } else if (userInputDateValue === "") {
+          inputDateErrorMessage = document.querySelector(
+            ".js-input-date-error-message"
+          );
+          inputDateErrorMessage.innerText = "Please select a Date";
+        }
         //else if (todoListArray.includes(userInputValue)) {
         //   //alert("duplicate elements not allowed");
         //   InputErrorMessage.innerText = "duplicate elements not allowed";
         //   userInputTextbox.style.outline = "3px solid red";
         // }
-         else {
-          todoListArray.push({item: userInputValue,dueDate: userInputDateValue});
-          InputErrorMessage.innerText = "";
+        else {
+          todoListArray.push({
+            item: userInputValue,
+            dueDate: userInputDateValue,
+          });
+          inputTextErrorMessage.innerText = "";
+          inputDateErrorMessage.innerText="";
+
         }
 
         console.log(todoListArray);
@@ -132,7 +156,7 @@
         renderTodoList();
       }
 
-      renderTodoList();
+      //renderTodoList();
 
       // addButton.addEventListener('click',()=>{
       //     const userInputTextbox=document.querySelector('.js-input-text');
