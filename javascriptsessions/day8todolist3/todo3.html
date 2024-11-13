@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
       .input-text-error-message, .input-date-error-message {
-        color: red;
+        color: green;
         opacity: 1;
       }
       .todo-item {
@@ -46,7 +46,7 @@
           class="js-input-text"
         /><br />
         <span
-          class="input-text-error-message js-input-text-error-message"
+          class="js-input-text-error-message"
         ></span>
       </div>
       <div>
@@ -125,8 +125,8 @@
         console.log(typeof userInputDateValue);
         if (userInputValue === "") {
           inputTextErrorMessage = document.querySelector(
-            ".js-input-text-error-message"
-          );
+            ".js-input-text-error-message");
+          inputTextErrorMessage.classList.add('input-text-error-message')
           inputTextErrorMessage.innerText = "textbox cannot be blank";
         } else if (userInputDateValue === "") {
           inputDateErrorMessage = document.querySelector(
