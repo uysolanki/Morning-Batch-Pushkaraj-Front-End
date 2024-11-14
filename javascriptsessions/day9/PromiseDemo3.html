@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="one"></p>
+    <script>
+        function renderParaghraph(myData)
+        {
+            document.getElementById('one').innerHTML=myData;
+        }
+
+        //renderParaghraph('mango');
+
+        let myPromise=new Promise(
+            function(myResolve,myReject)
+            {
+                    //task
+                let OrderStatus=parseInt(prompt("1. Order Success 0. Order Reject"));
+                if(OrderStatus===1)
+                 {
+                        myResolve('Order successfully Delivered')
+                 }
+                 else{
+                        myReject('Order Rejected')
+                 }
+
+            }
+        );
+
+        myPromise.then(
+           function(result){renderParaghraph(result)},
+           function(error){renderParaghraph(error)}  
+        )
+    </script>
+</body>
+</html>
