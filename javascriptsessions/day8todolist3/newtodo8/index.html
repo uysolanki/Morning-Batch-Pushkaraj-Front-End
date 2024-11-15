@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .input-text-error-message, .input-date-error-message {
+        color: red;
+        opacity: 1;
+      }
+      .todo-item {
+        display: inline-block;
+      }
+      .todo-list-row {
+        display: grid;
+        grid-template-columns: 250px 150px 100px;
+        column-gap: 20px;
+        align-items: center;
+      }
+
+      .delete-todo-item,
+      .add-button {
+        background-color: rgb(204, 32, 32);
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 2px;
+        font-family: arial;
+        font-weight: bold;
+        width: 120px;
+        cursor: pointer;
+      }
+      .add-button {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Todo List Practice 3</h3>
+    <div class="todo-list-row">
+      <div>
+        <input
+          type="text"
+          placeholder="Todo name"
+          class="js-input-text"
+        /><br />
+        <span
+          class="js-input-text-error-message"
+        ></span>
+      </div>
+      <div>
+        <input type="date" class="js-input-date" />
+        <span
+          class="js-input-date-error-message input-date-error-message"
+        ></span>
+      </div>
+      <button class="js-add-button add-button">Add</button>
+    </div>
+    <div class="js-show-todo-list"></div>
+
+    <script type="module" src="./todoApp.js"></script>
+  </body>
+</html>
