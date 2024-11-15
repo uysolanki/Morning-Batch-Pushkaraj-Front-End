@@ -1,4 +1,5 @@
 import {carBrands,cars} from './data.js'
+import myMathOperation from './arithmetic.js'
 
 let htmlUnorderedCarsBrandsList='<ul>';
 
@@ -31,3 +32,5 @@ carsNamesDivElement.innerHTML=htmlUnorderedCarNamesList
     <li>Tata</li>
     <li>Honda</li>
 </ul> */}
+
+console.log(myMathOperation)
