@@ -8,17 +8,19 @@ let b=20
 let c=a+b
 console.log(c)
 
+const listText=['File','Edit','Searching','View','Encoding','Lang']
+
   return (
-    <div>
+   
         <ul>
-            <li>File</li>
-            <li>Edit</li>
-            <li>View</li>
-            <li>Close</li>
-            <li>{c}</li>
+            {
+                listText.map(
+                    (element)=>    
+                     <li>{element}</li>
+                    
+                )
+            }
         </ul>
-           
-    </div>
   )
 }
 
