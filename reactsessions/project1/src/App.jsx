@@ -1,12 +1,10 @@
 import React from 'react'
-import './App.css'
+// import Counter from './components/Counter'
+import Counter1 from './components/Counter1'
 
 const App = () => {
   return (
-    <div class="parent-container">
-    <div class="candidate-name">My Name is Umar</div>
-    <div class="course-name">I am pursuing FSD</div>
-    </div>
+    <Counter1/>
   )
 }
 

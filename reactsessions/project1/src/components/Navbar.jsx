@@ -11,14 +11,9 @@ console.log(c)
 const listText=['File','Edit','Searching','View','Encoding','Lang']
 
   return (
-   
         <ul>
             {
-                listText.map(
-                    (element)=>    
-                     <li>{element}</li>
-                    
-                )
+                listText.map((element)=>   <li>I like {element}</li> )
             }
         </ul>
   )
