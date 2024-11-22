@@ -6,11 +6,11 @@ import { MdExposurePlus1 } from "react-icons/md";
 const Counter1 = () => {
 
     const [mycounter, setMycounter] = useState(); 
-    console.log(mycounter)
+    // console.log(mycounter)
     function handleIncrement()
     {
         setMycounter(mycounter?mycounter+1:1); 
-        console.log(mycounter)
+        //console.log(mycounter)
     }
     
     function handleDecrement()
@@ -18,14 +18,14 @@ const Counter1 = () => {
         if(mycounter>=1)
         {
         setMycounter(mycounter?mycounter-1:1); 
-        console.log(mycounter)
+        //console.log(mycounter)
         }
     }
     
       return (
         <div className="parent-container">
-        <Button mycolor="red" myfontsize="32px" myicon={<MdExposurePlus1/>} />
-        <Button mytext="Increment by 2" mycolor="blue" myfontsize="26px"/>
+        <Button mycolor="red" myfontsize="32px" myicon={<MdExposurePlus1/>} onclickhandler={handleIncrement} />
+        <Button mytext="Increment by 2" mycolor="blue" />
         <Button mytext="Decrement by 1" mycolor="green" myfontsize="20px"/>
         <Button mytext="Decrement by 2" mycolor="yellow" myfontsize="16px"/>
         <br/><br/>
