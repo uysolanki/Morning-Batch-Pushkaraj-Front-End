@@ -21,11 +21,15 @@ const Counter1 = () => {
         //console.log(mycounter)
         }
     }
-    
+    const student={
+      rno:18,
+      sname:"Virat",
+      per:78.5
+    }
       return (
         <div className="parent-container">
         <Button mycolor="red" myfontsize="32px" myicon={<MdExposurePlus1/>} onclickhandler={handleIncrement} />
-        <Button mytext="Increment by 2" mycolor="blue" />
+        <Button mytext="Increment by 2" mycolor="blue" stud={student} />
         <Button mytext="Decrement by 1" mycolor="green" myfontsize="20px"/>
         <Button mytext="Decrement by 2" mycolor="yellow" myfontsize="16px"/>
         <br/><br/>
