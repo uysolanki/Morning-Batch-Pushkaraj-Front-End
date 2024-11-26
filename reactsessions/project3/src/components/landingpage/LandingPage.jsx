@@ -2,7 +2,8 @@ import React from 'react'
 
 const LandingPage = () => {
   return (
-    <div>LandingPage</div>
+    <div>
+      <img src="/images/amazonhomepage.jpg" width="1200" height="600"/></div>
   )
 }
 

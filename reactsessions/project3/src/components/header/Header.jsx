@@ -1,9 +1,10 @@
 import React from 'react'
-import Navbar from '../shared/Navbar'
+import NavList from '../shared/NavList.jsx'
 
 const Header = () => {
+  const applicationListItems = ["TextReader", "Calculator", "App3", "App4", "App5","App6"];
   return (
-    <Navbar/>
+    <NavList items={applicationListItems}/>
   )
 }
 
