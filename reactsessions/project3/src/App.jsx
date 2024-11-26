@@ -1,7 +1,7 @@
 import React from 'react'
-import LandingPage from './components/LandingPage'
-import Footer from './components/Footer'
-import Header from './components/Header'
+import LandingPage from './components/landingpage/LandingPage'
+import Footer from './components/footer/Footer'
+import Header from './components/header/Header'
 
 const App = () => {
   return (
