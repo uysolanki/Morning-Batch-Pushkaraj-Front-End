@@ -9,7 +9,7 @@ const NavList = (props) => {
       props.items.map(
         (navListItem, index) => 
         {
-        return <li key={index}>{navListItem}</li>;
+        return <li key={index} onClick={()=>props.clickHandler(navListItem)}>{navListItem}</li>;
         }
       )
       }

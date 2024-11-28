@@ -9,7 +9,7 @@ import AllProductsPro from "./components/AllProductsPro";
 const App = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <AllProductsPro />
       <Footer />
     </div>
