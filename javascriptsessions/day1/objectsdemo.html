@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // player={
+        //     jno:18,
+        //     mp:100,
+        //     rs:10000,
+        //     calculateAvg: function calculateAvg(){
+        //         console.log(this.avg)
+        //         this.avg=this.rs/this.mp
+        //         console.log(this.avg)
+        //     }
+        // }
+        // console.log(player)
+       
+        // player.calculateAvg()
+        // console.log(player)
+        // console.log(typeof player.avg)
+
+
+
+        player={
+            jno:18,
+            mp:100,
+            rs:10000,
+            calculateAvg: function(){
+                console.log(this.avg)
+                this.avg=this.rs/this.mp
+                console.log(this.avg)
+            }
+        }
+        console.log(player)
+        delete player.avg;
+        // console.log(player)
+        player.calculateAvg()
+        console.log(player)
+        delete player.avg;
+        console.log(player)
+        // console.log(player)
+        // console.log(typeof player.avg)
+
+        // const personString=JSON.stringify(player)
+        // console.log(personString)
+        // const backToObj=JSON.parse(personString)
+        // console.log(backToObj)
+    </script>
+</body>
+</html>
