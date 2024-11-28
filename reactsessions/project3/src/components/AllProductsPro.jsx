@@ -9,7 +9,7 @@ const AllProductsPro = () => {
     const [buproducts,setBuproducts]=useState([])
 
     
-    const allcat=products.map(
+    const allcat=products.map(    //buproducts.map
       (prod)=> prod.category
     )
 
