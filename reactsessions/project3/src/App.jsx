@@ -5,12 +5,13 @@ import UseEffectDemo from "./UseEffectDemo";
 import Greet from "./Greet";
 import AllProducts from "./components/AllProducts";
 import AllProductsPro from "./components/AllProductsPro";
+import AllProductsProMax from "./components/AllProductsProMax";
 
 const App = () => {
   return (
     <div>
       {/* <Header /> */}
-      <AllProductsPro />
+      <AllProductsProMax />
       <Footer />
     </div>
   );
