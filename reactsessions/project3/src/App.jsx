@@ -6,13 +6,35 @@ import Greet from "./Greet";
 import AllProducts from "./components/AllProducts";
 import AllProductsPro from "./components/AllProductsPro";
 import AllProductsProMax from "./components/AllProductsProMax";
-
+import {BrowserRouter as Router , Routes, Route} from 'react-router-dom';
+import SingleProduct from "./components/SingleProduct";
 const App = () => {
   return (
     <div>
-      {/* <Header /> */}
-      <AllProductsProMax />
-      <Footer />
+      <Router>
+        <Routes>
+            <Route
+            path='/'
+            element={
+              <>
+              <AllProductsProMax/>
+              </>
+            }
+            />
+
+            <Route
+            path='/singlepro/:id'
+            element={
+              <>
+              <SingleProduct/>
+              </>
+            }
+            />
+
+        </Routes>
+      
+        <Footer />
+      </Router>
     </div>
   );
 };
