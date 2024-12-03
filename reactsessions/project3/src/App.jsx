@@ -8,6 +8,7 @@ import AllProductsPro from "./components/AllProductsPro";
 import AllProductsProMax from "./components/AllProductsProMax";
 import {BrowserRouter as Router , Routes, Route} from 'react-router-dom';
 import SingleProduct from "./components/SingleProduct";
+import AllProductsProMaxSuper from "./components/AllProductsProMaxSuper";
 const App = () => {
   return (
     <div>
@@ -17,7 +18,7 @@ const App = () => {
             path='/'
             element={
               <>
-              <AllProductsProMax/>
+              <AllProductsProMaxSuper/>
               </>
             }
             />
