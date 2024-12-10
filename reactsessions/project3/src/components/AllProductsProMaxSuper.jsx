@@ -19,7 +19,8 @@ const AllProductsProMaxSuper = () => {
 
     async function loadProducts()
     {
-        const objectFromAPI= await axios.get('http://localhost:8085/getAllProducts')
+        //const objectFromAPI= await axios.get('http://localhost:8085/getAllProducts')
+        const objectFromAPI= await axios.get('http://localhost:8086/products')
         console.log(objectFromAPI)
         setProducts(objectFromAPI.data)
         setBuproducts(objectFromAPI.data)  

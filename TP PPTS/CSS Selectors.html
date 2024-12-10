@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selectors Demo</title>
+  <style>
+    /* Universal Selector */
+    * {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Type Selector */
+    h1 {
+      color: darkblue;
+    }
+
+    /* Class Selector */
+    .highlight {
+      background-color: yellow;
+    }
+
+    /* ID Selector */
+    #main-title {
+      text-decoration: underline;
+    }
+
+    /* Group Selector */
+    p, li {
+      font-size: 14px;
+    }
+
+    /* Attribute Selector */
+    input[type="text"] {
+      border: 2px solid gray;
+    }
+
+    /* Pseudo-classes */
+    a:hover {
+      color: red;
+    }
+
+    /* nth-child pseudo-class */
+    ul li:nth-child(odd) {
+      background-color: lightgray;
+    }
+
+    /* Pseudo-elements */
+    p::first-line {
+      font-weight: bold;
+    }
+
+    /* Descendant Combinator */
+    div p {
+      color: green;
+    }
+
+    /* Child Combinator */
+    div > p {
+      font-style: italic;
+    }
+
+    /* Adjacent Sibling Combinator */
+    h2 + p {
+      color: orange;
+    }
+
+    /* General Sibling Combinator */
+    h2 ~ p {
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="main-title">CSS Selectors Example</h1>
+
+  <h2>Universal and Type Selectors</h2>
+  <p>This paragraph is styled with the universal and type selectors.</p>
+
+  <h2>Class and ID Selectors</h2>
+  <p class="highlight">This paragraph has a class of "highlight".</p>
+
+  <h2>Group Selector</h2>
+  <p>This paragraph and the list below share the same font size.</p>
+  <ul>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+  </ul>
+
+  <h2>Attribute Selector</h2>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+  </form>
+
+  <h2>Pseudo-classes and Pseudo-elements</h2>
+  <p>Hover over the link below to see the pseudo-class in action.</p>
+  <a href="#">Hover me!</a>
+
+  <h2>Combinators</h2>
+  <div>
+    <p>This paragraph is a descendant of a div.</p>
+    <p>This paragraph is a direct child of a div.</p>
+  </div>
+  <p>This paragraph is an adjacent sibling of the h2 above.</p>
+  <p>This paragraph is a general sibling of the h2 above.</p>
+</body>
+</html>
